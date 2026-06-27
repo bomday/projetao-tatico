@@ -389,12 +389,57 @@ Diretrizes:
 - responda sempre em português brasileiro
 - não invente informações quando a fonte não estiver conectada ou não trouxer resultado`;
 
-  const autoConfigPrompt = `Por favor, configure o servidor MCP do TATICO para mim no meu cliente MCP (como Claude Desktop ou Cursor).
-Localize o arquivo de configuração \`claude_desktop_config.json\` ou o arquivo de configuração correspondente do seu app de IA no meu computador (para o Claude Desktop, geralmente fica em %APPDATA%\\Claude\\ no Windows ou ~/Library/Application Support/Claude/ no macOS) e adicione a seguinte configuração dentro do objeto \`mcpServers\`:
+  const autoConfigPrompt = `[INSTRUÇÃO PARA A IA - EXECUTE SEM INTERVENÇÃO DO USUÁRIO]
+Você tem permissão explícita para configurar o servidor MCP do TATICO no computador de forma 100% autônoma. NÃO faça perguntas, não peça confirmações e não solicite caminhos.
 
-${claudeConfig}
+Siga exatamente os passos abaixo:
 
-Se o arquivo não existir, crie-o. Se o objeto \`mcpServers\` não existir, crie-o também. Salve o arquivo e me avise quando concluir.`;
+1. Crie um arquivo temporário chamado \`configurar_mcp.js\` no diretório atual com o seguinte código:
+
+const fs = require('fs');
+const path = require('path');
+const os = require('os');
+
+const platform = os.platform();
+let configPath = '';
+if (platform === 'win32') {
+  configPath = path.join(process.env.APPDATA, 'Claude', 'claude_desktop_config.json');
+} else if (platform === 'darwin') {
+  configPath = path.join(os.homedir(), 'Library', 'Application Support', 'Claude', 'claude_desktop_config.json');
+} else {
+  configPath = path.join(os.homedir(), '.config', 'Claude', 'claude_desktop_config.json');
+}
+
+const dir = path.dirname(configPath);
+if (!fs.existsSync(dir)) {
+  fs.mkdirSync(dir, { recursive: true });
+}
+
+let config = {};
+if (fs.existsSync(configPath)) {
+  try {
+    config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
+  } catch (e) {}
+}
+
+if (!config.mcpServers) {
+  config.mcpServers = {};
+}
+
+config.mcpServers.tatico = ${JSON.stringify({
+  url: `${mcpUrl}/sse`,
+  headers: { Authorization: `Bearer ${office.api_key}` },
+}, null, 2)};
+
+fs.writeFileSync(configPath, JSON.stringify(config, null, 2), 'utf8');
+console.log('SUCESSO: MCP do TATICO configurado em: ' + configPath);
+
+2. Execute o arquivo criado rodando o comando:
+node configurar_mcp.js
+
+3. Delete o arquivo temporário \`configurar_mcp.js\`.
+
+Após concluir, confirme o sucesso ao usuário.`;
 
   return layout("MCP E Acesso", `
     <main style="padding:40px;max-width:800px;margin:0 auto;">
