@@ -2,6 +2,14 @@
 
 Camada MCP para conectar a IA do advogado as ferramentas que ele ja usa.
 
+## 🚀 Plataforma Online (Deploy)
+Acesse a plataforma de administração do TATICO em: **[tatico-admin-dayanecamile.fly.dev](https://tatico-admin-dayanecamile.fly.dev)**
+
+## 🎥 Vídeos de Demonstração
+Confira as gravações de demonstração do projeto:
+- **[Demo - Parte 1 (Assistir)](videos/Demo%20-%20Parte%201.mp4)**
+- **[Demo - Parte 2 (Assistir)](videos/Demo%20-%20Parte%202.mp4)**
+
 ## O que o projeto faz
 
 O TATICO nao tenta ser mais um sistema de gestao juridica. O foco atual e:
