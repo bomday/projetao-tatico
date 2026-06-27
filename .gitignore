@@ -1,0 +1,38 @@
+# Dependencies
+node_modules/
+jspm_packages/
+web_modules/
+
+# Build and Outputs
+dist/
+build/
+out/
+.next/
+.nuxt/
+
+# Secrets and Environment Files
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
+*.env.*
+.npmrc
+.yarnrc
+
+# OS metadata
+.DS_Store
+Thumbs.db
+
+# IDEs and editors
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

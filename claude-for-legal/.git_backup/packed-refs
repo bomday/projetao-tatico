@@ -1,0 +1,14 @@
+# pack-refs with: peeled fully-peeled sorted 
+53b8fd444d94944d6dfba158b80d27476217c291 refs/remotes/origin/add-cocounsel-display-name
+448cedf677ec5e3afe7ecda45ec9ca3a784bc5fb refs/remotes/origin/add-plugin-display-names
+2a1ec0306461a568b04ff7a14b45dba8d690cdba refs/remotes/origin/cla-signatures
+78abd16e99fa887d3309d93ec41db2f37dc75396 refs/remotes/origin/fix/orchestrate-handoff-param-patterns
+5ceb305b30b4c82653c9b6642499c12e946ec319 refs/remotes/origin/main
+942961fc1feef33b4afa3278c7c109720aac6a11 refs/remotes/origin/markpike/launch-morning-fixes
+210fd7a6cffaa86a2f8c0fee12a7d155c37ef23c refs/remotes/origin/markpike/remove-lexis
+f30ffa40b3b9fd1129a76495b3a181feff90eba5 refs/remotes/origin/mattpic-ant-patch-1
+f189f6b847da67905c434a7aeb25ba9bc0f1af7d refs/remotes/origin/release-2026-06-03
+9250e808959b1f9a0dd9e74b2a6f673d35481370 refs/remotes/origin/tobin/add-cla-md
+7603d0a8c1778d347f414d27ed2fb2fcbd2e2e5d refs/remotes/origin/tobin/add-cocounsel-legal
+b54336aa159bdda0010789abe09d478e4a2027b6 refs/remotes/origin/tobin/cla-workflow-robustness
+c1998de2e63b916d9c8f3b8db0fedd5c6bac69ed refs/remotes/origin/tobin/remove-unused-references
